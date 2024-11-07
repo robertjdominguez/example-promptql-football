@@ -1,0 +1,14 @@
+services:
+  app_play_by_play:
+    build:
+      context: .
+      dockerfile: .hasura-connector/Dockerfile.play_by_play
+    environment:
+      CONNECTION_URI: $APP_PLAY_BY_PLAY_CONNECTION_URI
+      HASURA_SERVICE_TOKEN_SECRET: $APP_PLAY_BY_PLAY_HASURA_SERVICE_TOKEN_SECRET
+      OTEL_EXPORTER_OTLP_ENDPOINT: $APP_PLAY_BY_PLAY_OTEL_EXPORTER_OTLP_ENDPOINT
+      OTEL_SERVICE_NAME: $APP_PLAY_BY_PLAY_OTEL_SERVICE_NAME
+    extra_hosts:
+      - local.hasura.dev:host-gateway
+    ports:
+      - 9776:8080

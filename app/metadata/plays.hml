@@ -1,0 +1,495 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: plays
+  fields:
+    - name: challenger
+      type: varchar
+    - name: defenseteam
+      type: varchar
+    - name: description
+      type: text
+    - name: down
+      type: int4
+    - name: formation
+      type: varchar
+    - name: gamedate
+      type: date
+    - name: gameid
+      type: int8
+    - name: ischallenge
+      type: bool
+    - name: ischallengereversed
+      type: bool
+    - name: isfumble
+      type: bool
+    - name: isincomplete
+      type: bool
+    - name: isinterception
+      type: bool
+    - name: ismeasurement
+      type: bool
+    - name: isnoplay
+      type: bool
+    - name: ispass
+      type: bool
+    - name: ispenalty
+      type: bool
+    - name: ispenaltyaccepted
+      type: bool
+    - name: isrush
+      type: bool
+    - name: issack
+      type: bool
+    - name: istouchdown
+      type: bool
+    - name: istwopointconversion
+      type: bool
+    - name: istwopointconversionsuccessful
+      type: bool
+    - name: minute
+      type: int4
+    - name: nextscore
+      type: int4
+    - name: offenseteam
+      type: varchar
+    - name: passtype
+      type: varchar
+    - name: penaltyteam
+      type: varchar
+    - name: penaltytype
+      type: varchar
+    - name: penaltyyards
+      type: int4
+    - name: playtype
+      type: varchar
+    - name: quarter
+      type: int4
+    - name: rushdirection
+      type: varchar
+    - name: seasonyear
+      type: int4
+    - name: second
+      type: int4
+    - name: seriesfirstdown
+      type: bool
+    - name: teamwin
+      type: bool
+    - name: togo
+      type: int4
+    - name: yardline
+      type: int4
+    - name: yardlinedirection
+      type: varchar
+    - name: yardlinefixed
+      type: int4
+    - name: yards
+      type: int4
+  graphql:
+    typeName: plays
+    inputTypeName: plays_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: play_by_play
+      dataConnectorObjectType: plays
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: plays
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - challenger
+          - defenseteam
+          - description
+          - down
+          - formation
+          - gamedate
+          - gameid
+          - ischallenge
+          - ischallengereversed
+          - isfumble
+          - isincomplete
+          - isinterception
+          - ismeasurement
+          - isnoplay
+          - ispass
+          - ispenalty
+          - ispenaltyaccepted
+          - isrush
+          - issack
+          - istouchdown
+          - istwopointconversion
+          - istwopointconversionsuccessful
+          - minute
+          - nextscore
+          - offenseteam
+          - passtype
+          - penaltyteam
+          - penaltytype
+          - penaltyyards
+          - playtype
+          - quarter
+          - rushdirection
+          - seasonyear
+          - second
+          - seriesfirstdown
+          - teamwin
+          - togo
+          - yardline
+          - yardlinedirection
+          - yardlinefixed
+          - yards
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: plays_bool_exp
+  operand:
+    object:
+      type: plays
+      comparableFields:
+        - fieldName: challenger
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: defenseteam
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: description
+          booleanExpressionType: text_bool_exp
+        - fieldName: down
+          booleanExpressionType: int4_bool_exp
+        - fieldName: formation
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: gamedate
+          booleanExpressionType: date_bool_exp
+        - fieldName: gameid
+          booleanExpressionType: int8_bool_exp
+        - fieldName: ischallenge
+          booleanExpressionType: bool_bool_exp
+        - fieldName: ischallengereversed
+          booleanExpressionType: bool_bool_exp
+        - fieldName: isfumble
+          booleanExpressionType: bool_bool_exp
+        - fieldName: isincomplete
+          booleanExpressionType: bool_bool_exp
+        - fieldName: isinterception
+          booleanExpressionType: bool_bool_exp
+        - fieldName: ismeasurement
+          booleanExpressionType: bool_bool_exp
+        - fieldName: isnoplay
+          booleanExpressionType: bool_bool_exp
+        - fieldName: ispass
+          booleanExpressionType: bool_bool_exp
+        - fieldName: ispenalty
+          booleanExpressionType: bool_bool_exp
+        - fieldName: ispenaltyaccepted
+          booleanExpressionType: bool_bool_exp
+        - fieldName: isrush
+          booleanExpressionType: bool_bool_exp
+        - fieldName: issack
+          booleanExpressionType: bool_bool_exp
+        - fieldName: istouchdown
+          booleanExpressionType: bool_bool_exp
+        - fieldName: istwopointconversion
+          booleanExpressionType: bool_bool_exp
+        - fieldName: istwopointconversionsuccessful
+          booleanExpressionType: bool_bool_exp
+        - fieldName: minute
+          booleanExpressionType: int4_bool_exp
+        - fieldName: nextscore
+          booleanExpressionType: int4_bool_exp
+        - fieldName: offenseteam
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: passtype
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: penaltyteam
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: penaltytype
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: penaltyyards
+          booleanExpressionType: int4_bool_exp
+        - fieldName: playtype
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: quarter
+          booleanExpressionType: int4_bool_exp
+        - fieldName: rushdirection
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: seasonyear
+          booleanExpressionType: int4_bool_exp
+        - fieldName: second
+          booleanExpressionType: int4_bool_exp
+        - fieldName: seriesfirstdown
+          booleanExpressionType: bool_bool_exp
+        - fieldName: teamwin
+          booleanExpressionType: bool_bool_exp
+        - fieldName: togo
+          booleanExpressionType: int4_bool_exp
+        - fieldName: yardline
+          booleanExpressionType: int4_bool_exp
+        - fieldName: yardlinedirection
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: yardlinefixed
+          booleanExpressionType: int4_bool_exp
+        - fieldName: yards
+          booleanExpressionType: int4_bool_exp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: plays_bool_exp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: plays_agg_exp
+  operand:
+    object:
+      aggregatedType: plays
+      aggregatableFields:
+        - fieldName: challenger
+          aggregateExpression: varchar_agg_exp
+        - fieldName: defenseteam
+          aggregateExpression: varchar_agg_exp
+        - fieldName: description
+          aggregateExpression: text_agg_exp
+        - fieldName: down
+          aggregateExpression: int4_agg_exp
+        - fieldName: formation
+          aggregateExpression: varchar_agg_exp
+        - fieldName: gamedate
+          aggregateExpression: date_agg_exp
+        - fieldName: gameid
+          aggregateExpression: int8_agg_exp
+        - fieldName: ischallenge
+          aggregateExpression: bool_agg_exp
+        - fieldName: ischallengereversed
+          aggregateExpression: bool_agg_exp
+        - fieldName: isfumble
+          aggregateExpression: bool_agg_exp
+        - fieldName: isincomplete
+          aggregateExpression: bool_agg_exp
+        - fieldName: isinterception
+          aggregateExpression: bool_agg_exp
+        - fieldName: ismeasurement
+          aggregateExpression: bool_agg_exp
+        - fieldName: isnoplay
+          aggregateExpression: bool_agg_exp
+        - fieldName: ispass
+          aggregateExpression: bool_agg_exp
+        - fieldName: ispenalty
+          aggregateExpression: bool_agg_exp
+        - fieldName: ispenaltyaccepted
+          aggregateExpression: bool_agg_exp
+        - fieldName: isrush
+          aggregateExpression: bool_agg_exp
+        - fieldName: issack
+          aggregateExpression: bool_agg_exp
+        - fieldName: istouchdown
+          aggregateExpression: bool_agg_exp
+        - fieldName: istwopointconversion
+          aggregateExpression: bool_agg_exp
+        - fieldName: istwopointconversionsuccessful
+          aggregateExpression: bool_agg_exp
+        - fieldName: minute
+          aggregateExpression: int4_agg_exp
+        - fieldName: nextscore
+          aggregateExpression: int4_agg_exp
+        - fieldName: offenseteam
+          aggregateExpression: varchar_agg_exp
+        - fieldName: passtype
+          aggregateExpression: varchar_agg_exp
+        - fieldName: penaltyteam
+          aggregateExpression: varchar_agg_exp
+        - fieldName: penaltytype
+          aggregateExpression: varchar_agg_exp
+        - fieldName: penaltyyards
+          aggregateExpression: int4_agg_exp
+        - fieldName: playtype
+          aggregateExpression: varchar_agg_exp
+        - fieldName: quarter
+          aggregateExpression: int4_agg_exp
+        - fieldName: rushdirection
+          aggregateExpression: varchar_agg_exp
+        - fieldName: seasonyear
+          aggregateExpression: int4_agg_exp
+        - fieldName: second
+          aggregateExpression: int4_agg_exp
+        - fieldName: seriesfirstdown
+          aggregateExpression: bool_agg_exp
+        - fieldName: teamwin
+          aggregateExpression: bool_agg_exp
+        - fieldName: togo
+          aggregateExpression: int4_agg_exp
+        - fieldName: yardline
+          aggregateExpression: int4_agg_exp
+        - fieldName: yardlinedirection
+          aggregateExpression: varchar_agg_exp
+        - fieldName: yardlinefixed
+          aggregateExpression: int4_agg_exp
+        - fieldName: yards
+          aggregateExpression: int4_agg_exp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: plays_agg_exp
+
+---
+kind: Model
+version: v1
+definition:
+  name: plays
+  objectType: plays
+  source:
+    dataConnectorName: play_by_play
+    collection: plays
+  filterExpressionType: plays_bool_exp
+  aggregateExpression: plays_agg_exp
+  orderableFields:
+    - fieldName: challenger
+      orderByDirections:
+        enableAll: true
+    - fieldName: defenseteam
+      orderByDirections:
+        enableAll: true
+    - fieldName: description
+      orderByDirections:
+        enableAll: true
+    - fieldName: down
+      orderByDirections:
+        enableAll: true
+    - fieldName: formation
+      orderByDirections:
+        enableAll: true
+    - fieldName: gamedate
+      orderByDirections:
+        enableAll: true
+    - fieldName: gameid
+      orderByDirections:
+        enableAll: true
+    - fieldName: ischallenge
+      orderByDirections:
+        enableAll: true
+    - fieldName: ischallengereversed
+      orderByDirections:
+        enableAll: true
+    - fieldName: isfumble
+      orderByDirections:
+        enableAll: true
+    - fieldName: isincomplete
+      orderByDirections:
+        enableAll: true
+    - fieldName: isinterception
+      orderByDirections:
+        enableAll: true
+    - fieldName: ismeasurement
+      orderByDirections:
+        enableAll: true
+    - fieldName: isnoplay
+      orderByDirections:
+        enableAll: true
+    - fieldName: ispass
+      orderByDirections:
+        enableAll: true
+    - fieldName: ispenalty
+      orderByDirections:
+        enableAll: true
+    - fieldName: ispenaltyaccepted
+      orderByDirections:
+        enableAll: true
+    - fieldName: isrush
+      orderByDirections:
+        enableAll: true
+    - fieldName: issack
+      orderByDirections:
+        enableAll: true
+    - fieldName: istouchdown
+      orderByDirections:
+        enableAll: true
+    - fieldName: istwopointconversion
+      orderByDirections:
+        enableAll: true
+    - fieldName: istwopointconversionsuccessful
+      orderByDirections:
+        enableAll: true
+    - fieldName: minute
+      orderByDirections:
+        enableAll: true
+    - fieldName: nextscore
+      orderByDirections:
+        enableAll: true
+    - fieldName: offenseteam
+      orderByDirections:
+        enableAll: true
+    - fieldName: passtype
+      orderByDirections:
+        enableAll: true
+    - fieldName: penaltyteam
+      orderByDirections:
+        enableAll: true
+    - fieldName: penaltytype
+      orderByDirections:
+        enableAll: true
+    - fieldName: penaltyyards
+      orderByDirections:
+        enableAll: true
+    - fieldName: playtype
+      orderByDirections:
+        enableAll: true
+    - fieldName: quarter
+      orderByDirections:
+        enableAll: true
+    - fieldName: rushdirection
+      orderByDirections:
+        enableAll: true
+    - fieldName: seasonyear
+      orderByDirections:
+        enableAll: true
+    - fieldName: second
+      orderByDirections:
+        enableAll: true
+    - fieldName: seriesfirstdown
+      orderByDirections:
+        enableAll: true
+    - fieldName: teamwin
+      orderByDirections:
+        enableAll: true
+    - fieldName: togo
+      orderByDirections:
+        enableAll: true
+    - fieldName: yardline
+      orderByDirections:
+        enableAll: true
+    - fieldName: yardlinedirection
+      orderByDirections:
+        enableAll: true
+    - fieldName: yardlinefixed
+      orderByDirections:
+        enableAll: true
+    - fieldName: yards
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: plays
+    selectUniques: []
+    orderByExpressionType: plays_order_by
+    filterInputTypeName: plays_filter_input
+    aggregate:
+      queryRootField: plays_aggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: plays
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

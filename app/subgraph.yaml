@@ -1,0 +1,19 @@
+kind: Subgraph
+version: v2
+definition:
+  name: app
+  generator:
+    rootPath: .
+    namingConvention: none
+  includePaths:
+    - metadata
+  envMapping:
+    APP_PLAY_BY_PLAY_AUTHORIZATION_HEADER:
+      fromEnv: APP_PLAY_BY_PLAY_AUTHORIZATION_HEADER
+    APP_PLAY_BY_PLAY_READ_URL:
+      fromEnv: APP_PLAY_BY_PLAY_READ_URL
+    APP_PLAY_BY_PLAY_WRITE_URL:
+      fromEnv: APP_PLAY_BY_PLAY_WRITE_URL
+  connectors:
+    - path: connector/play_by_play/connector.yaml
+      connectorLinkName: play_by_play
